@@ -7,18 +7,24 @@ public sealed class CreateTaskCommandValidator : AbstractValidator<CreateTaskCom
 {
     public CreateTaskCommandValidator()
     {
+        RuleFor(x => x.Name)
+            .NotEmpty()
+            .WithMessage("El nombre es requerido.")
+            .MaximumLength(80)
+            .WithMessage("El nombre no puede superar los 80 carácteres.");
+
         RuleFor(x => x.Description)
             .NotEmpty()
-            .WithMessage("Description cannot be empty.")
+            .WithMessage("La descripción es requerida.")
             .MaximumLength(500)
-            .WithMessage("Description cannot exceed 500 characters.");
+            .WithMessage("La descripción no puede superar los 500 carácter.");
 
         RuleFor(x => x.CategoryId)
             .NotEmpty()
-            .WithMessage("Category is required.");
+            .WithMessage("La categoría es requerida.");
 
         RuleFor(x => x.DueDate)
-            .Must(date => !date.HasValue || date.Value > DateTime.UtcNow.AddDays(-1)) // Ensures DueDate is not in the past, considering it's optional.
-            .WithMessage("Due date cannot be in the past.");
+            .Must(date => !date.HasValue || date.Value > DateTime.UtcNow.AddDays(-1))
+            .WithMessage("La fecha de vencimiento no debe ser menor a la actual.");
     }
 }

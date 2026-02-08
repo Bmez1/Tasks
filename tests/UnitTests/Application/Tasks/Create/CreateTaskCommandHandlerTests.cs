@@ -30,6 +30,7 @@ public class CreateTaskCommandHandlerTests
         // Arrange
         var command = new CreateTaskCommand(
             Guid.NewGuid(),
+            "Task Name",
             "Task Description",
             Guid.NewGuid(), // Non-existent category ID
             DateTime.UtcNow);
@@ -58,6 +59,7 @@ public class CreateTaskCommandHandlerTests
         var categoryId = Guid.NewGuid();
         var command = new CreateTaskCommand(
             Guid.NewGuid(),
+            "Task Name",
             "Task Description",
             categoryId,
             DateTime.UtcNow);

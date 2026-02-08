@@ -18,6 +18,10 @@ internal sealed class CreateTask : IEndpoint
     public sealed class Request
     {
         /// <summary>
+        /// The name of the task.
+        /// </summary>
+        public string Name { get; set; }
+        /// <summary>
         /// The description of the task.
         /// </summary>
         public string Description { get; set; }
@@ -43,6 +47,7 @@ internal sealed class CreateTask : IEndpoint
         {
             var command = new CreateTaskCommand(
                 userContext.UserId,
+                request.Name,
                 request.Description,
                 request.CategoryId,
                 request.DueDate);

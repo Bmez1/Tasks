@@ -1,4 +1,4 @@
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace Application.Tasks.Categories.Create;
 
@@ -8,8 +8,8 @@ public sealed class CreateCategoryCommandValidator : AbstractValidator<CreateCat
     {
         RuleFor(x => x.Name)
             .NotEmpty()
-            .WithMessage("Category name cannot be empty.")
+            .WithMessage("El nombre de la categoría es requerido.")
             .MaximumLength(100)
-            .WithMessage("Category name cannot exceed 100 characters.");
+            .WithMessage("El nombre no puede superar los 100 carácteres.");
     }
 }

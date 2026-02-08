@@ -38,6 +38,7 @@ internal sealed class GetFilteredTasksQueryHandler(
             .Select(task => new TaskResponse
             {
                 Id = task.Id,
+                Name = task.Name,
                 Description = task.Description,
                 CategoryId = task.CategoryId,
                 CategoryName = task.Category.Name,

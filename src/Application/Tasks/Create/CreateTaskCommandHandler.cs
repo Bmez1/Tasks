@@ -25,6 +25,7 @@ public sealed class CreateTaskCommandHandler(IApplicationDbContext context)
 
         var task = Task.Create(
             request.UserId,
+            request.Name,
             request.Description,
             request.CategoryId,
             request.DueDate);

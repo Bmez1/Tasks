@@ -9,6 +9,7 @@ public sealed class Task : Entity
 {
     public Guid Id { get; private set; }
     public Guid UserId { get; private set; }
+    public string Name { get; private set; }
     public string Description { get; private set; }
     public Guid CategoryId { get; private set; }
     public Category Category { get; set; }
@@ -23,12 +24,14 @@ public sealed class Task : Entity
     private Task(
         Guid id,
         Guid userId,
+        string name,
         string description,
         Guid categoryId,
         DateTime? dueDate)
     {
         Id = id;
-        UserId = userId; // Set UserId
+        UserId = userId;
+        Name = name;
         Description = description;
         CategoryId = categoryId;
         DueDate = dueDate;
@@ -38,11 +41,12 @@ public sealed class Task : Entity
 
     public static Task Create(
         Guid userId,
+        string name,
         string description,
         Guid categoryId,
         DateTime? dueDate)
     {
-        return new Task(Guid.NewGuid(), userId, description, categoryId, dueDate);
+        return new Task(Guid.NewGuid(), userId, name, description, categoryId, dueDate);
     }
 
     public void MarkComplete()
@@ -54,8 +58,9 @@ public sealed class Task : Entity
         }
     }
 
-    public void Update(string description, Guid categoryId, DateTime? dueDate, bool isCompleted)
+    public void Update(string name, string description, Guid categoryId, DateTime? dueDate, bool isCompleted)
     {
+        Name = name;
         Description = description;
         CategoryId = categoryId;
         DueDate = dueDate;

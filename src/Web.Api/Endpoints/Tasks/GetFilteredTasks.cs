@@ -15,7 +15,7 @@ internal sealed class GetFilteredTasks : IEndpoint
 {
     public void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapGet("tasks/filtered", async (
+        app.MapGet("tasks", async (
             Guid? categoryId,
             IUserContext userContext,
             IQueryHandler<GetFilteredTasksQuery, List<TaskResponse>> handler,

@@ -17,6 +17,10 @@ internal sealed class UpdateTask : IEndpoint
     public sealed class Request
     {
         /// <summary>
+        /// The updated name of the task.
+        /// </summary>
+        public string Name { get; set; }
+        /// <summary>
         /// The updated description of the task.
         /// </summary>
         public string Description { get; set; }
@@ -49,6 +53,7 @@ internal sealed class UpdateTask : IEndpoint
             var command = new UpdateTaskCommand(
                 id,
                 userContext.UserId,
+                request.Name,
                 request.Description,
                 request.CategoryId,
                 request.DueDate,

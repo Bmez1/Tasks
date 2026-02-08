@@ -9,6 +9,6 @@ public sealed class CompleteTaskCommandValidator : AbstractValidator<CompleteTas
     {
         RuleFor(x => x.TaskId)
             .NotEmpty()
-            .WithMessage("Task ID cannot be empty.");
+            .WithMessage("El id de la tarea es requerido.");
     }
 }

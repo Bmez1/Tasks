@@ -34,6 +34,7 @@ internal sealed class UpdateTaskCommandHandler(IApplicationDbContext context)
         }
 
         task.Update(
+            request.Name,
             request.Description,
             request.CategoryId,
             request.DueDate,

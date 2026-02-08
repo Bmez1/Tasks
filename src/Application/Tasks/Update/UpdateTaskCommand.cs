@@ -7,6 +7,7 @@ namespace Application.Tasks.Update;
 public sealed record UpdateTaskCommand(
     Guid TaskId,
     Guid UserId,
+    string Name,
     string Description,
     Guid CategoryId,
     DateTime? DueDate,

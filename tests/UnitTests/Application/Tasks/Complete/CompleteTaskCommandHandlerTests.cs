@@ -46,7 +46,7 @@ public class CompleteTaskCommandHandlerTests
     {
         // Arrange
         var userId = Guid.NewGuid();
-        var existingTask = Task.Create(userId, "Description", Guid.NewGuid(), DateTime.UtcNow);
+        var existingTask = Task.Create(userId, "name", "Description", Guid.NewGuid(), DateTime.UtcNow);
         existingTask.MarkComplete();
         IQueryable<Task> tasks = new List<Task> { existingTask }.AsQueryable();
         _contextMock.SetupGet(x => x.Tasks).ReturnsDbSet(tasks);
@@ -66,7 +66,7 @@ public class CompleteTaskCommandHandlerTests
     {
         // Arrange
         var userId = Guid.NewGuid();
-        var existingTask = Task.Create(userId, "Description", Guid.NewGuid(), DateTime.UtcNow);
+        var existingTask = Task.Create(userId, "name", "Description", Guid.NewGuid(), DateTime.UtcNow);
         Guid taskId = existingTask.Id;
         var command = new CompleteTaskCommand(taskId, userId);
 
