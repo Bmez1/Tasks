@@ -9,8 +9,6 @@ public static class DbInitializer
 {
     public static async Task SeedAsync(ApplicationDbContext context, IPasswordHasher passwordHasher)
     {
-        await context.Database.MigrateAsync();
-
         // Seed default user
         bool changesExists = false;
         if (!await context.Users.AnyAsync())
