@@ -29,6 +29,8 @@ Esta API es una solución construida con los principios de la Arquitectura Limpi
     -   Serilog para el logging estructurado.
 -   Seq para la búsqueda y análisis de logs estructurados
     -   Seq está disponible en `http://localhost:8081` por defecto.
+-   HealthCheck para ver el estado de salud de la DB como servicio externo
+    -   health está disponible en `http://localhost:5000/health` por defecto.
 -   Proyectos de testing (pruebas unitarias y de arquitectura).
 
 ## Primeros Pasos
