@@ -23,6 +23,6 @@ public sealed class UpdateTaskCommandValidator : AbstractValidator<UpdateTaskCom
 
         RuleFor(x => x.DueDate)
             .Must(date => !date.HasValue || date.Value > DateTime.UtcNow.AddDays(-1))
-            .WithMessage("La fecha de vencimiento debe ser mayor a la fecha actual.");
+            .WithMessage("La fecha limite debe ser mayor a la fecha actual.");
     }
 }

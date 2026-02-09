@@ -25,6 +25,6 @@ public sealed class CreateTaskCommandValidator : AbstractValidator<CreateTaskCom
 
         RuleFor(x => x.DueDate)
             .Must(date => !date.HasValue || date.Value > DateTime.UtcNow.AddDays(-1))
-            .WithMessage("La fecha de vencimiento no debe ser menor a la actual.");
+            .WithMessage("La fecha limite no debe ser menor a la actual.");
     }
 }
